@@ -1,6 +1,8 @@
 use std::collections::BTreeMap;
 use std::str::from_utf8;
 
+use enum_as_inner::EnumAsInner;
+
 //d4:name12:hello.txt12:piece lengthi16384e6:lengthi13e6:pieces20:<20 bytes>e
 enum InferredBencode {
     BenString,
@@ -9,7 +11,7 @@ enum InferredBencode {
     BenDict,
     Invalid,
 }
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone,EnumAsInner)]
 pub enum BencodeType {
     BenString(Vec<u8>),
     BenInt(u32),
